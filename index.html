@@ -527,6 +527,12 @@
       border: 1px solid rgba(247, 129, 102, 0.3);
     }
 
+    .badge-complete {
+      background: rgba(79, 209, 142, 0.14);
+      color: #1f7a45;
+      border: 1px solid rgba(79, 209, 142, 0.32);
+    }
+
     .project-desc {
       font-size: 14px;
       color: var(--muted);
@@ -1064,13 +1070,12 @@
           <div class="project-card-header">
             <h3 class="project-title">A/B Testing Framework</h3>
             <div class="project-badges">
-              <span class="badge badge-progress">In Progress</span>
+              <span class="badge badge-complete">Complete</span>
             </div>
           </div>
           <p class="project-desc">
-            Statistical A/B testing framework covering the full experimental lifecycle: power analysis for
-            sample size determination, multiple testing correction (Bonferroni, BH), and automated business
-            impact reporting with confidence intervals and effect size estimates.
+            Production-grade statistical testing framework with Bayesian, frequentist, and causal inference
+            capabilities across the full experimental lifecycle.
           </p>
           <div class="project-stack">
             <span class="stack-tag">Python</span>
