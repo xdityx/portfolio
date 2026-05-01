@@ -577,6 +577,13 @@
       padding: 3px 9px;
     }
 
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
     .project-link {
       display: inline-flex;
       align-items: center;
@@ -584,7 +591,6 @@
       font-size: 13.5px;
       font-weight: 600;
       color: var(--accent);
-      margin-top: auto;
       width: fit-content;
       padding: 6px 0;
       border-bottom: 1px solid transparent;
@@ -595,6 +601,22 @@
       border-bottom-color: var(--accent);
       text-decoration: none;
       gap: 9px;
+    }
+
+    .project-link-case {
+      color: var(--orange);
+    }
+
+    .project-link-case:hover {
+      border-bottom-color: var(--orange);
+    }
+
+    .project-link-demo {
+      color: var(--green);
+    }
+
+    .project-link-demo:hover {
+      border-bottom-color: var(--green);
     }
 
     /* ── Certifications ───────────────────────────────── */
@@ -1011,11 +1033,18 @@
             <span class="stack-tag">Docker</span>
             <span class="stack-tag">pytest</span>
           </div>
-          <a href="https://github.com/xdityx/profit-uplift-modeling-system" target="_blank" rel="noopener noreferrer"
-            class="project-link">
-            <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
-              style="font-size:11px;"></i>
-          </a>
+          <div class="project-links">
+            <a href="https://github.com/xdityx/profit-uplift-modeling-system" target="_blank" rel="noopener noreferrer"
+              class="project-link">
+              <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+            <a href="https://github.com/xdityx/profit-uplift-modeling-system/blob/master/CASE_STUDY.md" target="_blank" rel="noopener noreferrer"
+              class="project-link project-link-case">
+              <i class="fa-solid fa-book-open"></i> Case Study <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+          </div>
         </div>
 
         <!-- Card 2 -->
@@ -1035,11 +1064,18 @@
             <span class="stack-tag">Docker</span>
             <span class="stack-tag">MLflow</span>
           </div>
-          <a href="https://github.com/xdityx/Churn-Mlops-System" target="_blank" rel="noopener noreferrer"
-            class="project-link">
-            <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
-              style="font-size:11px;"></i>
-          </a>
+          <div class="project-links">
+            <a href="https://github.com/xdityx/Churn-Mlops-System" target="_blank" rel="noopener noreferrer"
+              class="project-link">
+              <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+            <a href="https://github.com/xdityx/Churn-Mlops-System/blob/master/CASE_STUDY.md" target="_blank" rel="noopener noreferrer"
+              class="project-link project-link-case">
+              <i class="fa-solid fa-book-open"></i> Case Study <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+          </div>
         </div>
 
         <!-- Card 3 -->
@@ -1058,11 +1094,18 @@
             <span class="stack-tag">Scikit-learn</span>
             <span class="stack-tag">Pandas</span>
           </div>
-          <a href="https://github.com/xdityx/xoserve-uk-gas-demand-forecasting" target="_blank"
-            rel="noopener noreferrer" class="project-link">
-            <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
-              style="font-size:11px;"></i>
-          </a>
+          <div class="project-links">
+            <a href="https://github.com/xdityx/xoserve-uk-gas-demand-forecasting" target="_blank"
+              rel="noopener noreferrer" class="project-link">
+              <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+            <a href="https://github.com/xdityx/xoserve-uk-gas-demand-forecasting/blob/master/CASE_STUDY.md" target="_blank" rel="noopener noreferrer"
+              class="project-link project-link-case">
+              <i class="fa-solid fa-book-open"></i> Case Study <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+          </div>
         </div>
 
         <!-- Card 4 -->
@@ -1082,11 +1125,23 @@
             <span class="stack-tag">SciPy</span>
             <span class="stack-tag">Pandas</span>
           </div>
-          <a href="https://github.com/xdityx/A-B-Testing-Framework" target="_blank" rel="noopener noreferrer"
-            class="project-link">
-            <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
-              style="font-size:11px;"></i>
-          </a>
+          <div class="project-links">
+            <a href="https://github.com/xdityx/A-B-Testing-Framework" target="_blank" rel="noopener noreferrer"
+              class="project-link">
+              <i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+            <a href="https://github.com/xdityx/A-B-Testing-Framework/blob/master/CASE_STUDY.md" target="_blank" rel="noopener noreferrer"
+              class="project-link project-link-case">
+              <i class="fa-solid fa-book-open"></i> Case Study <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+            <a href="https://a-b-testing-framework-mkbmuqqzyng7ivqk25qrae.streamlit.app/" target="_blank" rel="noopener noreferrer"
+              class="project-link project-link-demo">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo <i class="fa-solid fa-arrow-right"
+                style="font-size:11px;"></i>
+            </a>
+          </div>
         </div>
 
       </div>
