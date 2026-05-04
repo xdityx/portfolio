@@ -29,7 +29,7 @@
       --accent: #58a6ff;
       --accent2: #3d8bcd;
       --text: #e6edf3;
-      --muted: #8b949e;
+      --muted: #a8b2c1;
       --green: #3fb950;
       --orange: #f78166;
       --nav-h: 64px;
@@ -106,9 +106,15 @@
       z-index: 100;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(13, 17, 23, 0.82);
+      background: rgba(13, 17, 23, 0.95);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      #navbar {
+        display: none;
+      }
     }
 
     #navbar.scrolled {
@@ -288,6 +294,8 @@
       background: var(--accent);
       color: #0d1117;
       border: 1px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.2);
+      font-weight: 700;
     }
 
     .btn-primary:hover {
@@ -295,8 +303,8 @@
       border-color: #79b8ff;
       text-decoration: none;
       color: #0d1117;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.35);
     }
 
     .btn-outline {
@@ -310,6 +318,19 @@
       border-color: var(--muted);
       text-decoration: none;
       color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: var(--muted);
+      text-decoration: none;
       transform: translateY(-1px);
     }
 
@@ -351,11 +372,12 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 20px;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
 
     .stat-card:hover {
       border-color: var(--accent);
+      background: rgba(88, 166, 255, 0.05);
     }
 
     .stat-number {
@@ -427,17 +449,18 @@
     .skill-tag {
       font-size: 12.5px;
       color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: rgba(88, 166, 255, 0.08);
+      border: 1px solid rgba(88, 166, 255, 0.2);
       border-radius: 5px;
-      padding: 4px 10px;
-      font-weight: 400;
-      transition: color 0.15s, border-color 0.15s;
+      padding: 5px 11px;
+      font-weight: 500;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
 
     .skill-group:hover .skill-tag {
       color: var(--text);
-      border-color: rgba(88, 166, 255, 0.3);
+      border-color: rgba(88, 166, 255, 0.4);
+      background: rgba(88, 166, 255, 0.12);
     }
 
     /* ── Projects ─────────────────────────────────────── */
@@ -447,8 +470,18 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
       gap: 20px;
+    }
+
+    @media (min-width: 1200px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-card.featured {
+        grid-column: 1;
+      }
     }
 
     .project-card {
@@ -464,16 +497,25 @@
       overflow: hidden;
     }
 
+    .project-card.featured {
+      border-color: rgba(88, 166, 255, 0.5);
+      background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(22, 27, 34, 0.8) 100%);
+    }
+
     .project-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 3px;
       background: linear-gradient(90deg, var(--accent), transparent);
       opacity: 0;
       transition: opacity 0.3s;
+    }
+
+    .project-card.featured::before {
+      opacity: 1;
     }
 
     .project-card:hover {
@@ -619,6 +661,39 @@
       border-bottom-color: var(--green);
     }
 
+    /* ── Credentials ──────────────────────────────────── */
+    .credentials-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .credential-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .credential-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(88, 166, 255, 0.08);
+      text-decoration: none;
+    }
+
+    .credential-link i {
+      font-size: 14px;
+    }
+
     /* ── Certifications ───────────────────────────────── */
     #certifications {
       background: var(--surface);
@@ -722,21 +797,23 @@
       align-items: center;
       gap: 10px;
       font-size: 17px;
-      font-weight: 600;
-      color: var(--accent);
-      padding: 14px 28px;
-      border: 1px solid rgba(88, 166, 255, 0.3);
+      font-weight: 700;
+      color: white;
+      padding: 16px 32px;
+      border: 1px solid var(--accent);
       border-radius: 10px;
-      background: rgba(88, 166, 255, 0.06);
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      background: var(--accent);
+      transition: all 0.2s;
       margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(88, 166, 255, 0.25);
     }
 
     .contact-email-link:hover {
-      background: rgba(88, 166, 255, 0.14);
-      border-color: var(--accent);
+      background: #79b8ff;
+      border-color: #79b8ff;
       text-decoration: none;
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.35);
     }
 
     .contact-socials {
@@ -882,9 +959,9 @@
             <i class="fa-solid fa-folder-open"></i>
             View Projects
           </a>
-          <a href="#contact" class="btn btn-outline" id="cta-contact">
+          <a href="#contact" class="btn btn-secondary" id="cta-contact">
             <i class="fa-regular fa-envelope"></i>
-            Contact Me
+            Get in Touch
           </a>
         </div>
       </div>
@@ -935,6 +1012,17 @@
             <div class="stat-label">HackerRank SQL</div>
           </div>
         </div>
+        <div class="credentials-bar reveal">
+          <a href="https://github.com/xdityx" target="_blank" rel="noopener noreferrer" class="credential-link">
+            <i class="fa-brands fa-github"></i> GitHub Profile
+          </a>
+          <a href="https://linkedin.com/in/aditya-acharya-ds/" target="_blank" rel="noopener noreferrer" class="credential-link">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://www.credly.com/badges/483d870b-36b5-93eb" target="_blank" rel="noopener noreferrer" class="credential-link">
+            <i class="fa-solid fa-certificate"></i> DP-100 Credential
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -950,49 +1038,43 @@
 
         <div class="skill-group reveal">
           <div class="skill-group-icon"><i class="fa-solid fa-brain"></i></div>
-          <div class="skill-group-title">ML / Data Science</div>
+          <div class="skill-group-title">Core Expertise</div>
           <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Scikit-learn</span>
-            <span class="skill-tag">LightGBM</span>
-            <span class="skill-tag">MLflow</span>
-            <span class="skill-tag">Uplift Modeling</span>
             <span class="skill-tag">Causal Inference</span>
+            <span class="skill-tag">Uplift Modeling</span>
+            <span class="skill-tag">Statistical Testing</span>
           </div>
         </div>
 
         <div class="skill-group reveal">
           <div class="skill-group-icon"><i class="fa-solid fa-gears"></i></div>
-          <div class="skill-group-title">MLOps</div>
+          <div class="skill-group-title">Production ML</div>
           <div class="skill-tags">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">GitHub Actions</span>
             <span class="skill-tag">MLflow</span>
-            <span class="skill-tag">PSI/KS Drift Detection</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Drift Detection</span>
           </div>
         </div>
 
         <div class="skill-group reveal">
           <div class="skill-group-icon"><i class="fa-solid fa-database"></i></div>
-          <div class="skill-group-title">Data</div>
+          <div class="skill-group-title">Data &amp; Analytics</div>
           <div class="skill-tags">
+            <span class="skill-tag">Python</span>
             <span class="skill-tag">SQL</span>
             <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Matplotlib</span>
-            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">Scikit-learn</span>
           </div>
         </div>
 
         <div class="skill-group reveal">
           <div class="skill-group-icon"><i class="fa-solid fa-cloud"></i></div>
-          <div class="skill-group-title">Cloud &amp; Big Data</div>
+          <div class="skill-group-title">Cloud Platforms</div>
           <div class="skill-tags">
             <span class="skill-tag">Azure ML</span>
-            <span class="skill-tag">AWS SageMaker</span>
-            <span class="skill-tag">PySpark</span>
             <span class="skill-tag">Azure DevOps</span>
+            <span class="skill-tag">AWS SageMaker</span>
           </div>
         </div>
 
@@ -1010,7 +1092,7 @@
       <div class="projects-grid">
 
         <!-- Card 1 -->
-        <div class="project-card reveal">
+        <div class="project-card reveal featured">
           <div class="project-card-header">
             <h3 class="project-title">Profit Uplift Modeling System</h3>
             <div class="project-badges">
